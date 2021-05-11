@@ -1,5 +1,5 @@
 <div class="login-body">
-    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
         <legend style="text-align: center;font-size: 32px;">فرم ثبت نام ...</legend>
         <div class="form-froup">
             <label for="" class="form-label">نام کاربری</label>
@@ -9,6 +9,7 @@
                 id="userName"
                 ngModel
                 name="username"
+                required
                 >
         </div>
         <div class="form-froup">
@@ -19,7 +20,11 @@
                 id="email"
                 ngModel
                 name="email"
+                required
+                email
+                #email="ngModel"
                 >
+            <span class="help-block" *ngIf="!email.valid && email.touched">ایمیل معتبری را وارد کنید!</span>
         </div>
         <div class="form-froup">
             <label for="" class="form-label">شماره همراه</label>
@@ -39,6 +44,7 @@
                 id="password"
                 ngModel
                 name="password"
+                required
                 >
         </div>
         <div class="form-froup">
@@ -49,6 +55,7 @@
                 id="password"
                 ngModel
                 name="passwordconfirm"
+                required
                 >
         </div>
         <div class="form-froup">
@@ -66,7 +73,11 @@
           </div>
         </div>
         <div class="form-froup">
-          <button type="submit" class="btn btn-primary">ثبت نام</button>&nbsp;&nbsp;&nbsp;
+          <button 
+              type="submit" 
+              class="btn btn-primary"
+              [disabled]="!f.valid"
+              >ثبت نام</button>&nbsp;&nbsp;&nbsp;
         </div>
       </form>
 </div>
