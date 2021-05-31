@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(form: HTMLFormElement) {
-    console.log(form);
+    // console.log(form);
   }
 
 }
