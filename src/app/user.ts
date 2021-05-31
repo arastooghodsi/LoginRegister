@@ -1,10 +1,10 @@
 export interface User {
-    id: number;
+    // id: number;
     name: string;
     family: string;
     email: string;
-    phoneNumber: string;
+    phone: string;
     password: string;
-    gender: boolean;
+    // gender: boolean;
     group: string;
 }

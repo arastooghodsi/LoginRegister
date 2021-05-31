@@ -1,8 +1,8 @@
 <div class="login-body">
     <form (ngSubmit)="onSubmit()" #f="ngForm">
         <legend style="text-align: center;font-size: 32px;">فرم ثبت نام ...</legend>
-        <div ngModelGroup = "groupUser">
-            <div class="form-froup">
+        <!-- <div ngModelGroup = "groupUser"> -->
+            <div class="form-group">
                 <label for="" class="form-label">نام کاربری</label>
                 <input 
                     type="name" 
@@ -13,7 +13,7 @@
                     required
                     >
             </div>
-            <div class="form-froup">
+            <div class="form-group">
                 <label for="" class="form-label">ایمیل</label>
                 <input 
                     type="email" 
@@ -27,8 +27,8 @@
                     >
                 <span class="help-block" *ngIf="!email.valid && email.touched">ایمیل معتبری را وارد کنید!</span>
             </div>
-        </div>
-        <div class="form-froup">
+        <!-- </div> -->
+        <div class="form-group">
             <label for="" class="form-label">شماره همراه</label>
             <input 
                 type="text" 
@@ -38,7 +38,7 @@
                 name="phonenumber"
                 >
         </div>
-        <div class="form-froup">
+        <div class="form-group">
           <label for="" class="form-label">رمز عبور</label>
           <input 
                 type="password" 
@@ -49,7 +49,7 @@
                 required
                 >
         </div>
-        <!-- <div class="form-froup">
+        <!-- <div class="form-group">
             <label for="" class="form-label">تائید رمز عبور</label>
             <input 
                 type="password" 
@@ -60,7 +60,7 @@
                 required
                 >
         </div> -->
-        <div class="form-froup">
+        <!-- <div class="form-group">
           <div class="form-check">
             <input 
                 class="form-check-input" 
@@ -73,9 +73,9 @@
               Check me out
             </label>
           </div>
-        </div>
+        </div> -->
 
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="" class="form-label">جنسیت</label>
             <select 
                 class="form-select" 
@@ -86,7 +86,7 @@
               <option value="male">مرد</option>
               <option value="female">زن</option>
             </select>
-        </div>
+        </div> -->
         <br>
         <div class="form-group">
           <label class="form-label">گروه</label>
@@ -105,7 +105,7 @@
         </div>
 
         <br>
-        <div class="form-froup">
+        <div class="form-group">
           <button 
               type="submit" 
               class="btn btn-primary"
@@ -114,3 +114,6 @@
         </div>
       </form>
 </div>
+<p>
+  {{ user.phone }}
+</p>

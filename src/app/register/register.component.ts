@@ -14,24 +14,27 @@ export class RegisterComponent {
   defaultGroup = "مهاجمان";
   groups = ['دروازه بان', 'مدافعان', 'میانداران', 'مهاجمان', 'مربیان'];
   user: User = {
-    id: 0,
     name: '',
     family: '',
     email: '',
-    phoneNumber: '',
+    phone: '',
     password: '',
-    gender: true,
     group: ''
   };
+  form: any;
 
 
    constructor() { }
 
-  onSubmit() {
-    // console.log(this.inputForm);
-    this.user.phoneNumber = this.inputForm!.value.phoneNumber;
-    // console.log(this.user.phoneNumber);
-    console.log(this.user.phoneNumber);
+  onSubmit(form: NgForm) {
+    this.inputForm.setValue({
+      
+    });
+    console.log(this.form);
+    // this.user.phone = this.form.;
+    // console.log(this.user.phone);
+    // alert(this.user.phoneNumber);
+    // alert(this.inputForm);
   }
 
 }
