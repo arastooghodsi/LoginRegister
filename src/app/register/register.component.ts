@@ -1,6 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { User } from '../user';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -9,32 +8,19 @@ import { User } from '../user';
 })
 export class RegisterComponent {
 
-  @ViewChild('f') inputForm!: NgForm;
-  defaultGender = "male";
-  defaultGroup = "مهاجمان";
-  groups = ['دروازه بان', 'مدافعان', 'میانداران', 'مهاجمان', 'مربیان'];
-  user: User = {
-    name: '',
-    family: '',
-    email: '',
-    phone: '',
-    password: '',
-    group: ''
-  };
-  form: any;
+  genders = ['male', 'female'];
+  inputForm: FormGroup;
 
+  constructor(inputForm: FormGroup) {}
 
-   constructor() { }
-
-  onSubmit(form: NgForm) {
-    this.inputForm.setValue({
-      
+  ngOnInit(): void {
+    this.inputForm = new FormGroup)({
+      'username': new FormControl(null),
+      'email': new FormControl(null),
+      'phoneNumber': new FormControl(null),
+      'password': new FormControl(null),
+      'password-confirm': new FormControl(null)
     });
-    console.log(this.form);
-    // this.user.phone = this.form.;
-    // console.log(this.user.phone);
-    // alert(this.user.phoneNumber);
-    // alert(this.inputForm);
   }
 
 }

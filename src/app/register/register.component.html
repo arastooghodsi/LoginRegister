@@ -1,119 +1,45 @@
-<div class="login-body">
-    <form (ngSubmit)="onSubmit()" #f="ngForm">
-        <legend style="text-align: center;font-size: 32px;">فرم ثبت نام ...</legend>
-        <!-- <div ngModelGroup = "groupUser"> -->
-            <div class="form-group">
-                <label for="" class="form-label">نام کاربری</label>
-                <input 
-                    type="name" 
-                    class="form-control" 
-                    id="userName"
-                    ngModel
-                    name="username"
-                    required
-                    >
-            </div>
-            <div class="form-group">
-                <label for="" class="form-label">ایمیل</label>
-                <input 
-                    type="email" 
-                    class="form-control" 
-                    id="email"
-                    ngModel
-                    name="email"
-                    required
-                    email
-                    #email="ngModel"
-                    >
-                <span class="help-block" *ngIf="!email.valid && email.touched">ایمیل معتبری را وارد کنید!</span>
-            </div>
-        <!-- </div> -->
-        <div class="form-group">
-            <label for="" class="form-label">شماره همراه</label>
-            <input 
-                type="text" 
-                class="form-control" 
-                id="phoneNumber"
-                ngModel
-                name="phonenumber"
-                >
-        </div>
-        <div class="form-group">
-          <label for="" class="form-label">رمز عبور</label>
-          <input 
-                type="password" 
-                class="form-control" 
-                id="password"
-                ngModel
-                name="password"
-                required
-                >
-        </div>
-        <!-- <div class="form-group">
-            <label for="" class="form-label">تائید رمز عبور</label>
-            <input 
-                type="password" 
-                class="form-control" 
-                id="password"
-                ngModel
-                name="passwordconfirm"
-                required
-                >
-        </div> -->
-        <!-- <div class="form-group">
-          <div class="form-check">
-            <input 
-                class="form-check-input" 
-                type="checkbox" 
-                id="gridCheck"
-                ngModel
-                name="checkbox"
-                >
-            <label class="form-check-label" for="gridCheck">
-              Check me out
-            </label>
-          </div>
-        </div> -->
+<form [formGroup]="inputForm" style="width: 60%; margin-right: 35%;">
+  <br><br><br>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="username">نام کاربری</label>
+      <input formControlName="username" type="text" class="form-control" id="username" placeholder="نام کاربری">
+    </div>
 
-        <!-- <div class="form-group">
-            <label for="" class="form-label">جنسیت</label>
-            <select 
-                class="form-select" 
-                id="gender" 
-                [ngModel]="defaultGender" 
-                name="gender"
-                >
-              <option value="male">مرد</option>
-              <option value="female">زن</option>
-            </select>
-        </div> -->
-        <br>
-        <div class="form-group">
-          <label class="form-label">گروه</label>
-          <div class="radio" *ngFor = "let group of groups">
-              <label>
-                <input 
-                    class="form-check-input" 
-                    type="radio" 
-                    name="group" 
-                    [ngModel] = "defaultGroup" 
-                    [value]="group"
-                    >
-                {{ group }}
-              </label>
-          </div>
-        </div>
+    <br>
 
-        <br>
-        <div class="form-group">
-          <button 
-              type="submit" 
-              class="btn btn-primary"
-              [disabled]="!f.valid"
-              >ثبت نام</button>&nbsp;&nbsp;&nbsp;
-        </div>
-      </form>
-</div>
-<p>
-  {{ user.phone }}
-</p>
+    <div class="form-group col-md-6">
+      <label for="email">ایمیل</label>
+      <input formControlName="email" type="email" class="form-control" id="email" placeholder="ایمیل">
+    </div>
+
+    <br>
+    
+    <div class="form-group col-md-6">
+      <label for="phoneNumber">شماره همراه</label>
+      <input formControlName="phoneNumber" type="text" class="form-control" id="phoneNumber" placeholder="شماره همراه">
+    </div>
+
+    <br>
+    
+    <div class="form-group col-md-6">
+      <label for="password">رمز عبور</label>
+      <input formControlName="password" type="password" class="form-control" id="password" placeholder="رمز عبور">
+    </div>
+
+    <br>
+    
+    <div class="form-group col-md-6">
+      <label for="password-confirm">تائید رمز عبور</label>
+      <input formControlName="password-confirm" type="password" class="form-control" id="password-confirm" placeholder="تائید رمز عبور">
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">ثبت نام</button>&nbsp;&nbsp;&nbsp;
+      <button type="submit" class="btn btn-primary">صفحه ورود</button>
+    </div>
+
+  </div>
+</form>
