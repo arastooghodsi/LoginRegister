@@ -7,5 +7,5 @@ export interface User {
     phone: string;
     password: string;
     // gender: boolean;
-    group: string;
+    // group: string;
 }
