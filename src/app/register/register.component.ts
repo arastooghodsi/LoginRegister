@@ -14,42 +14,43 @@ export class RegisterComponent {
   genders = ['male', 'female'];
   inputForm!: FormGroup;
 
-  // user: User = {
-  //   username: '',
-  //   email: '',
-  //   phone: '',
-  //   password: ''
-  // }
+  user: User = {
+    username: '',
+    email: '',
+    phone: '',
+    password: ''
+  }
 
   users: User[] = [];
+  
 
   constructor(private registerService: RegisterService) {}
 
   ngOnInit(): void {
-    // this.inputForm = new FormGroup({
-    //   'username': new FormControl(null, Validators.required),
-    //   'email': new FormControl(null, [Validators.required, Validators.email]),
-    //   'phoneNumber': new FormControl(null, [Validators.maxLength(11), Validators.minLength(8)]),
-    //   'password': new FormControl(null, [Validators.required, Validators.minLength(4)]),
-    //   'passwordConfirm': new FormControl(null, Validators.required)
-    // });
-    this.registerService.getUsers(); 
+    this.inputForm = new FormGroup({
+      'username': new FormControl(null, Validators.required),
+      'email': new FormControl(null, [Validators.required, Validators.email]),
+      'phoneNumber': new FormControl(null, [Validators.maxLength(11), Validators.minLength(8)]),
+      'password': new FormControl(null, [Validators.required, Validators.minLength(4)]),
+      'passwordConfirm': new FormControl(null, Validators.required)
+    });
+    this.getUsers(); 
 
   }
 
   onSubmit() {
 
-    // this.user.username = this.inputForm.value.username;    
-    // this.user.email = this.inputForm.value.email;    
-    // this.user.phone = this.inputForm.value.phoneNumber;
-    // if(this.inputForm.value.password == this.inputForm.value.passwordConfirm) {
-    //   this.user.password = this.inputForm.value.password;
-    // }
+    this.user.username = this.inputForm.value.username;    
+    this.user.email = this.inputForm.value.email;    
+    this.user.phone = this.inputForm.value.phoneNumber;
+    if(this.inputForm.value.password == this.inputForm.value.passwordConfirm) {
+      this.user.password = this.inputForm.value.password;
+    }
     // this.add(this.user);
-    // this.inputForm.reset();
-    // for(let i = 0; i < USERS.length; i++) {
-      // console.log('{' + JSON.stringify(USERS[i].username) + '},\n{' + JSON.stringify(USERS[i].email) + '},\n{' + JSON.stringify(USERS[i].phone) + '}');
-    // }
+    // console.log(this.user.username);
+    this.add(this.user.username, this.user.email, this.user.phone, this.user.password);
+    this.inputForm.reset();
+    
   }
 
   getUsers(): void {
@@ -57,13 +58,37 @@ export class RegisterComponent {
     .subscribe(users => this.users = users);
   }
 
-  add(myUser: User): void {
-    myUser.username.trim();
-    myUser.email.trim();
-    myUser.phone.trim();
-    myUser.password.trim();
-    // if(!myUser) {return;}
-    this.registerService.addUser(myUser).subscribe(user => {this.users.push(user)});
+  add(newUsername: string, newEmail: string, newPhone: string, NewPassword: string): void {
+  //   this.user.username = this.inputForm.value.username;    
+  //   this.user.email = this.inputForm.value.email;    
+  //   this.user.phone = this.inputForm.value.phoneNumber;
+  //   if(this.inputForm.value.password == this.inputForm.value.passwordConfirm) {
+  //     this.user.password = this.inputForm.value.password;
+  //   }
+    // this.user.username.trim();
+    // this.user.email.trim();
+    // this.user.phone.trim();
+    // this.user.password.trim();
+    // if(!this.user) {return;}
+    this.user.username = newUsername;
+    this.user.email = newEmail;
+    this.user.phone = newPhone;
+    this.user.password = NewPassword;
+    console.log(this.user.email);
+    this.registerService.addUser(this.user)
+      .subscribe(user => {
+        this.users.push(this.user)
+      });
+    // this.printUser();
+  }
+
+  printUser() {
+    // for(let i = 0; i < this.users.length; i++) {
+    //   console.log('{' + JSON.stringify(this.users[i].username) + '},\n{' + JSON.stringify(this.users[i].email) + '},\n{' + JSON.stringify(this.users[i].phone) + '}');
+    // }
+    for(let i = 0; i < this.users.length; i++) {
+      console.log('{' + JSON.stringify(this.users[i].username) + '}');
+    }
   }
 
 }

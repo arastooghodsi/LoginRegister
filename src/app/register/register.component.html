@@ -3,7 +3,7 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="username">نام کاربری</label>
-      <input formControlName="username" type="text" class="form-control" id="username" placeholder="نام کاربری">
+      <input formControlName="username" type="text" ngModel name="username" class="form-control" id="username" placeholder="نام کاربری">
       <span class="alert alert-danger"
             *ngIf="!inputForm.controls['username'].valid && inputForm.controls['username'].touched">
               لطفا نام کاربری را وارد کنید!
@@ -14,7 +14,7 @@
 
     <div class="form-group col-md-6">
       <label for="email">ایمیل</label>
-      <input formControlName="email" type="email" class="form-control" id="email" placeholder="ایمیل">
+      <input formControlName="email" type="email" ngModel name="email" class="form-control" id="email" placeholder="ایمیل">
       <span class="alert alert-danger"
             *ngIf="!inputForm.controls['email'].valid && inputForm.controls['email'].touched">
               لطفا ایمیل معتبری را وارد کنید!
@@ -29,21 +29,21 @@
     
     <div class="form-group col-md-6">
       <label for="phoneNumber">شماره همراه</label>
-      <input formControlName="phoneNumber" type="text" class="form-control" id="phoneNumber" placeholder="شماره همراه">
+      <input formControlName="phoneNumber" type="text" ngModel name="phone" class="form-control" id="phoneNumber" placeholder="شماره همراه">
     </div>
 
     <br>
     
     <div class="form-group col-md-6">
       <label for="password">رمز عبور</label>
-      <input formControlName="password" type="password" class="form-control" id="password" placeholder="رمز عبور">
+      <input formControlName="password" type="password" ngModel name="password" class="form-control" id="password" placeholder="رمز عبور">
     </div>
 
     <br>
     
     <div class="form-group col-md-6">
       <label for="passwordConfirm">تائید رمز عبور</label>
-      <input formControlName="passwordConfirm" type="password" class="form-control" id="passwordConfirm" placeholder="تائید رمز عبور">
+      <input formControlName="passwordConfirm" type="password" ngModel class="form-control" id="passwordConfirm" placeholder="تائید رمز عبور">
     </div>
     
     <br>
@@ -57,9 +57,7 @@
 </form>
 
 <ul>
-  <li *ngFor="let user of users">
+  <li [ngModel] *ngFor="let user of users">
       {{user.username}}
   </li>
 </ul>
-
-<h1>Arastoo</h1>
