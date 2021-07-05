@@ -11,6 +11,7 @@ import { USERS } from '../mock-users';
 })
 export class RegisterComponent {
 
+
   genders = ['male', 'female'];
   inputForm!: FormGroup;
 
@@ -53,10 +54,15 @@ export class RegisterComponent {
     
   }
 
+  // getUsers(): void {
+  //   this.registerService.getUsers()
+  //   .subscribe(users => this.users = users);
+  // }
+
   getUsers(): void {
-    this.registerService.getUsers()
-    .subscribe(users => this.users = users);
+    this.registerService.getUsers().subscribe(users => this.users = users);
   }
+
 
   add(newUsername: string, newEmail: string, newPhone: string, NewPassword: string): void {
   //   this.user.username = this.inputForm.value.username;    

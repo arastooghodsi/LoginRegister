@@ -39,13 +39,19 @@ export class RegisterService {
 
   // }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl).pipe(
-      tap(_ => console.log('fetched heroes')),
-      catchError(this.handleError<User[]>('getUsers', []))
-    );
+  // getUsers(): Observable<User[]> {
+  //   return this.http.get<User[]>(this.usersUrl).pipe(
+  //     tap(_ => console.log('fetched heroes')),
+  //     catchError(this.handleError<User[]>('getUsers', []))
+  //   );
     
+  // }
+
+  getUsers(): Observable<User[]> {
+    const users = of(USERS);
+    return users;
   }
+
 
   addUser(user: User): Observable<User> {
     // console.log('fff');
