@@ -80,10 +80,9 @@ export class RegisterComponent {
     this.user.email = newEmail;
     this.user.phone = newPhone;
     this.user.password = NewPassword;
-    console.log(this.user.email);
-    this.registerService.addUser(this.user)
+    this.registerService.addUser(this.user as User)
       .subscribe(user => {
-        this.users.push(this.user)
+        this.users.push(user)
       });
     // this.printUser();
   }

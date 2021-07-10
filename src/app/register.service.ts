@@ -48,14 +48,15 @@ export class RegisterService {
   // }
 
   getUsers(): Observable<User[]> {
-    const users = of(USERS);
-    return users;
+    return this.http.get<User[]>(this.usersUrl)
   }
 
 
   addUser(user: User): Observable<User> {
-    // console.log('fff');
-    console.log(user.email.length);
+    console.log(user.password.length);
+    console.log(user.email);
+    console.log(user.username);
+    console.log(user.password);
     return this.http.post<User>(this.usersUrl, user, this.httpOptions);
     //   return this.http.post<User>(this.usersUrl, user, this.httpOptions).pipe(
     //   tap((newUser: User) => console.log('mohsen')),
