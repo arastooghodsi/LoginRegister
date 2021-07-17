@@ -49,7 +49,7 @@ export class RegisterComponent {
     }
     // this.add(this.user);
     // console.log(this.user.username);
-    this.add(this.user.username, this.user.email, this.user.phone, this.user.password);
+    // this.add(this.user.username, this.user.email, this.user.phone, this.user.password);
     this.inputForm.reset();
     
   }
@@ -60,11 +60,11 @@ export class RegisterComponent {
   // }
 
   getUsers(): void {
-    this.registerService.getUsers().subscribe(users => this.users = users);
+    this.registerService.getUsers().then((users: User[]) => this.users = users);
   }
 
 
-  add(newUsername: string, newEmail: string, newPhone: string, NewPassword: string): void {
+  add(newUsername: string, newEmail: string, newPhone: string, newPassword: string): void {
   //   this.user.username = this.inputForm.value.username;    
   //   this.user.email = this.inputForm.value.email;    
   //   this.user.phone = this.inputForm.value.phoneNumber;
@@ -76,14 +76,15 @@ export class RegisterComponent {
     // this.user.phone.trim();
     // this.user.password.trim();
     // if(!this.user) {return;}
-    this.user.username = newUsername;
-    this.user.email = newEmail;
-    this.user.phone = newPhone;
-    this.user.password = NewPassword;
-    this.registerService.addUser(this.user as User)
-      .subscribe(user => {
-        this.users.push(user)
-      });
+    // this.user.username = newUsername;
+    // this.user.email = newEmail;
+    // this.user.phone = newPhone;
+    // this.user.password = NewPassword;
+    let newUser: User = {username: newUsername, email: newEmail, phone: newPhone, password: newPassword}
+    this.registerService.addUser(newUser);
+      // .subscribe(user => {
+      //   this.users.push(user)
+      // });
     // this.printUser();
   }
 

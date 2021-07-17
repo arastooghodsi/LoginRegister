@@ -14,11 +14,11 @@ export class RegisterService {
 
   private usersUrl = 'api/users';
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type' : 'application/json' })
-  };
+  // httpOptions = {
+  //   headers: new HttpHeaders({ 'Content-Type' : 'application/json' })
+  // };
   
-  constructor(private http: HttpClient) { }
+  // constructor(private http: HttpClient) { }
 
   // getUsers(newUser: User) {
 
@@ -47,12 +47,16 @@ export class RegisterService {
     
   // }
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl)
+  // getUsers(): Observable<User[]> {
+    // return this.http.get<User[]>(this.usersUrl)
+
+  // }
+
+  getUsers() {
+    return Promise.resolve(USERS);
   }
 
-
-  addUser(user: User): Observable<User> {
+  /*addUser(user: User): Observable<User> {
     console.log(user.password.length);
     console.log(user.email);
     console.log(user.username);
@@ -62,6 +66,10 @@ export class RegisterService {
     //   tap((newUser: User) => console.log('mohsen')),
     //   catchError(this.handleError<User>('addUser'))
     // );
+  }*/
+
+  addUser(user: User) {
+    Promise.resolve(USERS).then((users: User[]) => users.push(user));
   }
 
 

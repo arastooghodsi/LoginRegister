@@ -18,7 +18,7 @@ export class UsersViewComponent implements OnInit {
   }
 
   getUsers(): void {
-    this.registerService.getUsers().subscribe(users => this.users = users);
+    this.registerService.getUsers().then((users: User[]) => this.users = users);
   }
 
 }
