@@ -18,50 +18,17 @@ export class RegisterService {
     headers: new HttpHeaders({ 'Content-Type' : 'application/json' })
   };
   
-  constructor(private http: HttpClient) { }
+ 
 
-  // getUsers(newUser: User) {
 
-  //   let flag = true;
-  //   for(let i = 0; i < USERS.length; i++) {
-  //       if( 
-  //         (JSON.stringify(newUser.email) === JSON.stringify(USERS[i]. email)) ||
-  //         (JSON.stringify(newUser.username) === JSON.stringify(USERS[i]. username)) ||
-  //         (JSON.stringify(newUser.phone) === JSON.stringify(USERS[i]. phone)))
-  //         flag = false;
-  //   }
-
-  //   if(!flag) {
-  //     console.log('duplicate data');
-  //   }else {
-  //     console.log(newUser);
-  //   }
-
-  // }
-
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.usersUrl).pipe(
-      tap(_ => console.log('fetched heroes'))
-      // catchError(this.handleError<User[]>('getUsers', []))
-    );
-    
+  getUsers() {
+    return Promise.resolve(USERS);
   }
 
-  // addUser(user: User): Observable<User> {
-  //   // console.log('fff');
-  //   console.log(user.email.length);
-  //   return this.http.post<User>(this.usersUrl, user, this.httpOptions);
-  //   //   return this.http.post<User>(this.usersUrl, user, this.httpOptions).pipe(
-  //   //   tap((newUser: User) => console.log('mohsen')),
-  //   //   catchError(this.handleError<User>('addUser'))
-  //   // );
-  // }
 
 
-  addUser(name: String) {
-    console.log("arast");
-    console.log(name);
-    return this.http.post<User>(this.usersUrl, name, this.httpOptions);
+  addUser(user: User) {
+    Promise.resolve(USERS).then((users: User[]) => users.push(user));
   }
 
 

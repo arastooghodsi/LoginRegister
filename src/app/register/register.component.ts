@@ -11,6 +11,7 @@ import { USERS } from '../mock-users';
 })
 export class RegisterComponent {
 
+
   genders = ['male', 'female'];
   inputForm!: FormGroup;
 
@@ -46,44 +47,21 @@ export class RegisterComponent {
     if(this.inputForm.value.password == this.inputForm.value.passwordConfirm) {
       this.user.password = this.inputForm.value.password;
     }
-    this.add();
-    // console.log(this.user.username);
-    // this.add(this.user.username, this.user.email, this.user.phone, this.user.password);
     this.inputForm.reset();
     
   }
 
   getUsers(): void {
-    this.registerService.getUsers()
-    .subscribe(users => this.users = users);
+    this.registerService.getUsers().then((users: User[]) => this.users = users);
   }
 
-  add(): void {
-  //   this.user.username = this.inputForm.value.username;    
-  //   this.user.email = this.inputForm.value.email;    
-  //   this.user.phone = this.inputForm.value.phoneNumber;
-  //   if(this.inputForm.value.password == this.inputForm.value.passwordConfirm) {
-  //     this.user.password = this.inputForm.value.password;
-  //   }
-    // this.user.username.trim();
-    // this.user.email.trim();
-    // this.user.phone.trim();
-    // this.user.password.trim();
-    // if(!this.user) {return;}
-    let name = "Arastoo";
-    console.log("Arastoooooooo");
-    console.log(this.user.email);
-    this.registerService.addUser(this.user.username)
-      .subscribe(user => {
-        this.users.push(this.user)
-      });
-    // this.printUser();
+
+  add(newUsername: string, newEmail: string, newPhone: string, newPassword: string): void {
+    let newUser: User = {username: newUsername, email: newEmail, phone: newPhone, password: newPassword}
+    this.registerService.addUser(newUser);
   }
 
   printUser() {
-    // for(let i = 0; i < this.users.length; i++) {
-    //   console.log('{' + JSON.stringify(this.users[i].username) + '},\n{' + JSON.stringify(this.users[i].email) + '},\n{' + JSON.stringify(this.users[i].phone) + '}');
-    // }
     for(let i = 0; i < this.users.length; i++) {
       console.log('{' + JSON.stringify(this.users[i].username) + '}');
     }
