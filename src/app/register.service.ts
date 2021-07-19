@@ -41,20 +41,27 @@ export class RegisterService {
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.usersUrl).pipe(
-      tap(_ => console.log('fetched heroes')),
-      catchError(this.handleError<User[]>('getUsers', []))
+      tap(_ => console.log('fetched heroes'))
+      // catchError(this.handleError<User[]>('getUsers', []))
     );
     
   }
 
-  addUser(user: User): Observable<User> {
-    // console.log('fff');
-    console.log(user.email.length);
-    return this.http.post<User>(this.usersUrl, user, this.httpOptions);
-    //   return this.http.post<User>(this.usersUrl, user, this.httpOptions).pipe(
-    //   tap((newUser: User) => console.log('mohsen')),
-    //   catchError(this.handleError<User>('addUser'))
-    // );
+  // addUser(user: User): Observable<User> {
+  //   // console.log('fff');
+  //   console.log(user.email.length);
+  //   return this.http.post<User>(this.usersUrl, user, this.httpOptions);
+  //   //   return this.http.post<User>(this.usersUrl, user, this.httpOptions).pipe(
+  //   //   tap((newUser: User) => console.log('mohsen')),
+  //   //   catchError(this.handleError<User>('addUser'))
+  //   // );
+  // }
+
+
+  addUser(name: String) {
+    console.log("arast");
+    console.log(name);
+    return this.http.post<User>(this.usersUrl, name, this.httpOptions);
   }
 
 

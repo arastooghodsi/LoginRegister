@@ -46,9 +46,9 @@ export class RegisterComponent {
     if(this.inputForm.value.password == this.inputForm.value.passwordConfirm) {
       this.user.password = this.inputForm.value.password;
     }
-    // this.add(this.user);
+    this.add();
     // console.log(this.user.username);
-    this.add(this.user.username, this.user.email, this.user.phone, this.user.password);
+    // this.add(this.user.username, this.user.email, this.user.phone, this.user.password);
     this.inputForm.reset();
     
   }
@@ -58,7 +58,7 @@ export class RegisterComponent {
     .subscribe(users => this.users = users);
   }
 
-  add(newUsername: string, newEmail: string, newPhone: string, NewPassword: string): void {
+  add(): void {
   //   this.user.username = this.inputForm.value.username;    
   //   this.user.email = this.inputForm.value.email;    
   //   this.user.phone = this.inputForm.value.phoneNumber;
@@ -70,12 +70,10 @@ export class RegisterComponent {
     // this.user.phone.trim();
     // this.user.password.trim();
     // if(!this.user) {return;}
-    this.user.username = newUsername;
-    this.user.email = newEmail;
-    this.user.phone = newPhone;
-    this.user.password = NewPassword;
+    let name = "Arastoo";
+    console.log("Arastoooooooo");
     console.log(this.user.email);
-    this.registerService.addUser(this.user)
+    this.registerService.addUser(this.user.username)
       .subscribe(user => {
         this.users.push(this.user)
       });
