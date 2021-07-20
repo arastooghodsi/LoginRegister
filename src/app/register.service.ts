@@ -17,15 +17,12 @@ export class RegisterService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type' : 'application/json' })
   };
-  
- 
 
+  constructor(private http: HttpClient) {}
 
   getUsers() {
     return Promise.resolve(USERS);
   }
-
-
 
   addUser(user: User) {
     Promise.resolve(USERS).then((users: User[]) => users.push(user));
@@ -47,3 +44,5 @@ export class RegisterService {
   }
 
 }
+
+
