@@ -55,16 +55,9 @@ export class RegisterComponent {
     this.registerService.getUsers().then((users: User[]) => this.users = users);
   }
 
-
   add(newUsername: string, newEmail: string, newPhone: string, newPassword: string): void {
     let newUser: User = {username: newUsername, email: newEmail, phone: newPhone, password: newPassword}
     this.registerService.addUser(newUser);
-  }
-
-  printUser() {
-    for(let i = 0; i < this.users.length; i++) {
-      console.log('{' + JSON.stringify(this.users[i].username) + '}');
-    }
   }
 
 }

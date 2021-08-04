@@ -1,7 +1,6 @@
 .login-body {
-    width: 30%;
+    width: 40%;
     margin-top: 100px;
-    margin-right: 35%;
 }
 
 input.ng-invalid.ng-touched {
