@@ -1,7 +1,11 @@
 <div class="container">
   <div class="login-body">
-    <form (ngSubmit)="onSubmit(f)" #f>
+    <!-- <form (ngSubmit)="onSubmit(f)" #f> -->
+    <form [formGroup]="inputForm" (ngSubmit)="onSubmit()" style="width: 60%; margin-right: 35%;">
+
         <legend style="text-align: center;font-size: 32px;">فرم ورود ...</legend>
+
+        <!-- Username, Email, Phone Section -->
         <div class="form-froup">
           <label for="" class="form-label">نام کاربری، ایمیل و یا شماره همراه</label>
           <input 
@@ -12,6 +16,8 @@
                 name="loginname"
                 >
         </div>
+
+        <!-- Password Section -->
         <div class="form-froup">
           <label for="" class="form-label">رمز عبور</label>
           <input 
@@ -22,11 +28,15 @@
                 name="password"
                 >
         </div>
+        <br>
+
+        <!-- Submit Section -->
         <div class="form-froup">
-          <button type="submit" class="btn btn-primary">ورود</button>
+          <button type="submit" class="btn btn-primary" (click)="loginBTN()">ورود</button>
           <br>
-          <span>اگر هنوز <a routerLink = "/register">ثبت نام</a> نکرده اید...</span>
+          <span>اگر هنوز <label><a routerLink = "/register">ثبت نام</a></label> نکرده اید...</span>
         </div>
+        
       </form>
   </div>
 </div>

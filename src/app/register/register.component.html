@@ -1,57 +1,118 @@
-<form [formGroup]="inputForm" (ngSubmit)="onSubmit()" style="width: 60%; margin-right: 35%;">
-  <br><br><br>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="username">نام کاربری</label>
-      <input formControlName="username" type="text" ngModel name="username" class="form-control" id="username" #username placeholder="نام کاربری">
-      <span class="alert alert-danger"
-            *ngIf="!inputForm.controls['username'].valid && inputForm.controls['username'].touched">
-              لطفا نام کاربری را وارد کنید!
-      </span>
-    </div>
+<!-- <div class="container">
+  <div class="login-body">
+    <form [formGroup]="inputForm" (ngSubmit)="onSubmit()" style="width: 60%; margin-right: 35%;">
+      <legend style="text-align: center;font-size: 32px;">فرم ورود ...</legend>
+      <br><br><br>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="username">نام کاربری</label>
+          <input formControlName="username" type="text" ngModel name="username" class="form-control" id="username" #username placeholder="نام کاربری">
+          <span class="alert alert-danger"
+                *ngIf="!inputForm.controls['username'].valid && inputForm.controls['username'].touched">
+                  لطفا نام کاربری را وارد کنید!
+          </span>
+        </div>
 
-    <br>
+        <br>
 
-    <div class="form-group col-md-6">
-      <label for="email">ایمیل</label>
-      <input formControlName="email" type="email" ngModel name="email" class="form-control" id="email" #email placeholder="ایمیل">
-      <span class="alert alert-danger"
-            *ngIf="!inputForm.controls['email'].valid && inputForm.controls['email'].touched">
-              لطفا ایمیل معتبری را وارد کنید!
-      </span>
-      <!-- <span class="alert alert-danger"
-            *ngIf="!inputForm.controls['email'].valid">
-              لطفا ایمیل معتبری را وارد کنید!
-      </span> -->
-    </div>
+        <div class="form-group col-md-6">
+          <label for="email">ایمیل</label>
+          <input formControlName="email" type="email" ngModel name="email" class="form-control" id="email" #email placeholder="ایمیل">
+          <span class="alert alert-danger"
+                *ngIf="!inputForm.controls['email'].valid && inputForm.controls['email'].touched">
+                  لطفا ایمیل معتبری را وارد کنید!
+          </span>
+          <span class="alert alert-danger"
+                *ngIf="!inputForm.controls['email'].valid">
+                  لطفا ایمیل معتبری را وارد کنید!
+          </span>
+        </div>
 
-    <br>
-    
-    <div class="form-group col-md-6">
-      <label for="phoneNumber">شماره همراه</label>
-      <input formControlName="phoneNumber" type="text" ngModel name="phone" class="form-control" id="phoneNumber" #phone placeholder="شماره همراه">
-    </div>
+        <br>
+        
+        <div class="form-group col-md-6">
+          <label for="phoneNumber">شماره همراه</label>
+          <input formControlName="phoneNumber" type="text" ngModel name="phone" class="form-control" id="phoneNumber" #phone placeholder="شماره همراه">
+        </div>
 
-    <br>
-    
-    <div class="form-group col-md-6">
-      <label for="password">رمز عبور</label>
-      <input formControlName="password" type="password" ngModel name="password" class="form-control" id="password" #password placeholder="رمز عبور">
-    </div>
+        <br>
+        
+        <div class="form-group col-md-6">
+          <label for="password">رمز عبور</label>
+          <input formControlName="password" type="password" ngModel name="password" class="form-control" id="password" #password placeholder="رمز عبور">
+        </div>
 
-    <br>
-    
-    <div class="form-group col-md-6">
-      <label for="passwordConfirm">تائید رمز عبور</label>
-      <input formControlName="passwordConfirm" type="password" ngModel class="form-control" id="passwordConfirm" placeholder="تائید رمز عبور">
-    </div>
-    
-    <br>
-    
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary" (click) = "add(username.value, email.value, phone.value, password.value)">ثبت نام</button>&nbsp;&nbsp;&nbsp;
-      <button type="submit" class="btn btn-primary" routerLink="/loginreg">صفحه ورود</button>
-    </div>
+        <br>
+        
+        <div class="form-group col-md-6">
+          <label for="passwordConfirm">تائید رمز عبور</label>
+          <input formControlName="passwordConfirm" type="password" ngModel class="form-control" id="passwordConfirm" placeholder="تائید رمز عبور">
+        </div>
+        
+        <br>
+        
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" (click) = "add(username.value, email.value, phone.value, password.value)">ثبت نام</button>&nbsp;&nbsp;&nbsp;
+          <button type="submit" class="btn btn-primary" routerLink="/loginreg">صفحه ورود</button>
+        </div>
 
+      </div>
+    </form>
   </div>
-</form>
+</div> -->
+
+
+
+<div class="container">
+  <div class="login-body">
+    <!-- <form (ngSubmit)="onSubmit(f)" #f> -->
+      <form [formGroup]="inputForm" (ngSubmit)="onSubmit()" style="width: 60%; margin-right: 35%;">
+        <legend style="text-align: center;font-size: 32px;">فرم ثبت نام ...</legend>
+        
+        <!-- Username Section -->
+        <div class="form-froup">
+          <label for="username">نام کاربری</label>
+          <input formControlName="username" type="text" ngModel name="username" class="form-control" id="username" #username placeholder="نام کاربری">
+          <span class="alert alert-danger"
+                *ngIf="!inputForm.controls['username'].valid && inputForm.controls['username'].touched">
+                  لطفا نام کاربری را وارد کنید!
+          </span>
+        </div>
+
+        <!-- Email Section -->
+        <div class="form-froup">
+          <label for="email">ایمیل</label>
+          <input formControlName="email" type="email" ngModel name="email" class="form-control" id="email" #email placeholder="ایمیل">
+          <span class="alert alert-danger"
+                *ngIf="!inputForm.controls['email'].valid && inputForm.controls['email'].touched">
+                  لطفا ایمیل معتبری را وارد کنید!
+          </span>
+        </div>
+
+        <!-- Phone Number Section -->
+        <div class="form-froup">
+          <label for="phoneNumber">شماره همراه</label>
+          <input formControlName="phoneNumber" type="text" ngModel name="phone" class="form-control" id="phoneNumber" #phone placeholder="شماره همراه">
+        </div>
+
+        <!-- Password Section -->
+        <div class="form-froup">
+          <label for="password">رمز عبور</label>
+          <input formControlName="password" type="password" ngModel name="password" class="form-control" id="password" #password placeholder="رمز عبور">
+        </div>
+
+        <!-- Confirm Password Section -->
+        <div class="form-froup">
+          <label for="passwordConfirm">تائید رمز عبور</label>
+          <input formControlName="passwordConfirm" type="password" ngModel class="form-control" id="passwordConfirm" placeholder="تائید رمز عبور">
+        </div>
+        <br>
+        
+        <!-- Submit Section -->
+        <div class="form-froup">
+          <button type="submit" class="btn btn-primary" (click) = "add(username.value, email.value, phone.value, password.value)">ثبت نام</button>&nbsp;&nbsp;&nbsp;
+          <button type="submit" class="btn btn-primary" routerLink="/loginreg">صفحه ورود</button>
+        </div>
+      </form>
+  </div>
+</div>
