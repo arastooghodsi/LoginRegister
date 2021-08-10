@@ -12,6 +12,7 @@
                 type="name" 
                 class="form-control" 
                 id="username"
+                #username
                 ngModel
                 name="loginname"
                 >
@@ -24,6 +25,7 @@
                 type="password" 
                 class="form-control" 
                 id="password"
+                #password
                 ngModel
                 name="password"
                 >
@@ -32,7 +34,7 @@
 
         <!-- Submit Section -->
         <div class="form-froup">
-          <button type="submit" class="btn btn-primary" (click)="loginBTN()">ورود</button>
+          <button type="submit" class="btn btn-primary" (click)="loginBTN(username.value, password.value)">ورود</button>
           <br>
           <span>اگر هنوز <label><a routerLink = "/register">ثبت نام</a></label> نکرده اید...</span>
         </div>

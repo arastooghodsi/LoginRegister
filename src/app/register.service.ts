@@ -12,6 +12,8 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class RegisterService {
 
+  flagLogin: boolean = false;
+
   private usersUrl = 'api/users';
 
   httpOptions = {
@@ -26,6 +28,16 @@ export class RegisterService {
 
   addUser(user: User) {
     Promise.resolve(USERS).then((users: User[]) => users.push(user));
+  }
+
+  loginUser(usernameLogin: string, passwordLogin: string) {
+    for(let i = 0; i < USERS.length; i++) {
+      if((JSON.stringify(USERS[i].username) == usernameLogin) && (JSON.stringify(USERS[i].password) == passwordLogin)) {
+        this.flagLogin = true;
+      }
+    }
+    alert(this.flagLogin);
+    return this.flagLogin;
   }
 
 

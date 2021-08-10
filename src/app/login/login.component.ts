@@ -40,8 +40,8 @@ export class LoginComponent implements OnInit {
     this.registerService.getUsers().then((users: User[]) => this.users = users);
   }
 
-  loginBTN(): void {
-    alert(this.users.length)
+  loginBTN(usernameLogin: string, passwordLogin: string): void {
+    alert(this.registerService.loginUser(usernameLogin, passwordLogin));
   }
 
 }
